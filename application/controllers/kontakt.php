@@ -4,7 +4,7 @@
      *@author Mihailo
      * Kontroler za pocetnu stranicu
      */
-    class naslovna extends CI_Controller{
+    class kontakt extends CI_Controller{
 
         /**
          * constructor for this controller
@@ -30,7 +30,7 @@
          * index function, default function called for this contoller
          */
         public function index(){            
-            $this->loadPageLayout("pages/naslovna.php");
+            $this->loadPageLayout("pages/Kontakt.php");
         }
 
     }

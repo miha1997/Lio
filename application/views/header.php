@@ -16,7 +16,9 @@
 	</nav>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	  <a class="navbar-brand ml-3" href="#">Лио</a>
+      <?php
+      	echo '<a class="navbar-brand ml-3" href="'. base_url() . '">Лио</a>';
+      ?>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -24,16 +26,36 @@
 	  <div class="collapse navbar-collapse" id="navbarColor01">
 	    <ul class="navbar-nav ml-auto">
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Насловна</a>
+	      	<?php
+		      echo '<a class="nav-link" href="'. base_url() . '">Насловна</a>';
+		    ?>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Претрага</a>
+	      	<?php
+		      echo '<a class="nav-link" href="'. base_url() . 'pretraga">Претрага</a>';
+		    ?>
 	      </li>
+	      <?php
+	      	$korisnik = $this->session->userdata("korisnik");
+	      	
+	      	if (isset($korisnik)){
+	      		echo '<li class="nav-item">
+	        		<a class="nav-link" href="' . base_url() . 'naslovna/izadji">Изађи</a>
+	      		</li>';
+	      	}
+	      	else{
+	      		echo '<li class="nav-item">
+	        		<a class="nav-link" href="' . base_url() . 'registracija">Регистрација</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="' . base_url() . 'prijava">Пријава</a>
+	      		</li>';
+	      	}
+	      ?>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Обавештења</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Контакт</a>
+	        <?php
+		      echo '<a class="nav-link" href="'. base_url() . 'kontakt">Контакт</a>';
+		    ?>
 	      </li>
 	    </ul>
 	  </div>
