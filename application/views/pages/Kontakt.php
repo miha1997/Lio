@@ -1,4 +1,1 @@
-<p>
-	kontakt
-
-</p>>
+<?php echo base_url()?>

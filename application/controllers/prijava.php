@@ -1,20 +1,26 @@
-<?php
-    
+<?php 
+
     /**
      *@author Mihailo
-     * Kontroler za pocetnu stranicu
+     * Controller for register.
      */
-    class naslovna extends CI_Controller{
+    class prijava extends CI_Controller{
 
         /**
-         * constructor for this controller
+         * constructor for controller
          */
         public function __construct(){
             parent::__construct();
+
+            $this->load->model("Korisnik");
+
+            if ($this->session->has_userdata("korisnik")){
+                redirect("poruka/StranicaNijePronadjena");
+            }
         }
 
         /**
-         * Ucitava stranu
+         * Loads a page layout.
          *
          * @param      string  $page     The page
          * @param      array   $content  The content
@@ -24,7 +30,8 @@
             $this->load->view("header.php");
             $this->load->view($page, $content);
             $this->load->view("footer.php");
-        }
+
+        } 
 
         /**
          * index function, default function called for this contoller
@@ -52,16 +59,31 @@
                 }
             }
 
-            $this->loadPageLayout("pages/naslovna.php", $content);
+            $this->loadPageLayout("pages/prijava.php", $content);
+            
         }
 
-        public function izadji(){
-            $this->session->unset_userdata("korisnik");  
-            $this->session->set_flashdata('SuccessMessage', 'Успешно сте се излоговали!');
+        /**
+         * function which cheks and handles submit
+         */
 
-            $this->index();
+        public function potvrdi(){
+            $email = $this->input->post("email");
+            $password = $this->input->post("password");
+
+            $korisnik = $this->Korisnik->proveriKorisnika($email, $password);
+
+            if($korisnik == null){
+                $this->session->set_flashdata('ErrorMessage', 'Адреса или лозинка нису тачни!');
+                redirect("prijava");
+            }
+
+            $this->session->set_userdata("korisnik", $korisnik);
+            $this->session->set_flashdata('SuccessMessage', 'Успешно сте се улоговали!');
+            redirect("naslovna");
         }
 
     }
+
 
 ?>

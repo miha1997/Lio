@@ -12,6 +12,40 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarColor03">
+	  	<?php
+      		$korisnik = $this->session->userdata("korisnik");
+	      	
+	      	if (isset($korisnik)){
+	      		if($korisnik->Rang < 2){
+	      			echo '<ul class="navbar-nav ml-auto">
+		      				<li class="nav-item">
+		        				<a class="nav-link" href="' . base_url() . 'porudzbine/pregled">Моје поруџбине</a>
+		      				</li>
+		      				<li class="nav-item">
+	                        	<img src="'.base_url().'assets/images/personG.png" class="img-fluid" style="max-width:30px" />
+	                    	</li>
+		      			</ul>';
+	      		}
+	      		else{
+	      			echo '<ul class="navbar-nav ml-auto">
+		      				<li class="nav-item">
+		        				<a class="nav-link" href="' . base_url() . 'novoIzdanje">Ново издање</a>
+		      				</li>
+		      				<li class="nav-item">
+	                        	<img src="'.base_url().'assets/images/plus.png" class="img-fluid" style="max-width:30px" />
+	                    	</li>
+		      			
+		      				<li class="nav-item">
+		        				<a class="nav-link" href="' . base_url() . 'korisnici/pregled"> Корисници</a>
+		      				</li>
+		      				<li class="nav-item">
+	                        	<img src="'.base_url().'assets/images/security.png" class="img-fluid" style="max-width:30px" />
+	                    	</li>
+		      			</ul>';
+	      		}
+	      	}
+      	
+      	?>
 	  </div>
 	</nav>
 

@@ -1,3 +1,25 @@
+<div class="m-auto mb-5 mt-1">
+    <?php
+                if(isset($ErrorMessage)){
+                    echo '<div class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>'. $ErrorMessage. '</strong>
+                    </div>';
+                    
+                    $ErrorMessage = null;
+                }
+
+                if(isset($SuccessMessage)){
+                    echo '<div class="alert alert-dismissible alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>'. $SuccessMessage. '</strong>
+                    </div>';
+                    
+                    $SuccessMessage = null;
+                }
+                
+            ?>
+</div>
 <div class="row">
     <div class="col-sm-8">
         <div class="jumbotron pt-2 pb-2">
