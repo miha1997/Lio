@@ -36,7 +36,7 @@
 	                    	</li>
 		      			
 		      				<li class="nav-item">
-		        				<a class="nav-link" href="' . base_url() . 'korisnici/pregled"> Корисници</a>
+		        				<a class="nav-link" href="' . base_url() . 'pregled"> Преглед</a>
 		      				</li>
 		      				<li class="nav-item">
 	                        	<img src="'.base_url().'assets/images/security.png" class="img-fluid" style="max-width:30px" />

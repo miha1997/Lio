@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-8 offset-sm-2">
+	<div class="col-sm-10 offset-sm-1">
 		<?php
                 if(isset($ErrorMessage)){
                     echo '<div class="alert alert-dismissible alert-danger">
@@ -21,18 +21,18 @@
                 
         ?>
 
-	    <div class="jumbotron h-auto pb-2 pt-1">
+	    <div class="jumbotron h-auto pb-3 pt-4">
 	        <div class="row">
 	            <div class="col-sm-7">
 	            	<?php
-	            		echo '<img src="data:image;base64,'. $izdanje->Slika .'" class="img-fluid" height="300px" width="100%" style="border:groove" />';
+	            		echo '<img src="data:image;base64,'. $izdanje->Slika .'" style="display: block; border:groove;width:100%;height:500px"/>';
 	            	?>
 	            </div>
-	            <div class="col-sm-5 table-responsive fixed-table-body mt-3">
-	                <table class="table table-hover table-striped mt-3">
+	            <div class="col-sm-5 table-responsive fixed-table-body" style="border:groove">
+	                <table class="table table-hover table-striped ">
 	                    <thead>
 	                        <tr>
-	                            <th colspan="2" class="bg-secondary"><h2>Подаци</h2></th>
+	                            <th colspan="2" class="bg-active"><h2>Опис</h2></th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
@@ -51,19 +51,24 @@
 	                        <tr>
 	                            <?php
 	                        		echo '<td>Цена: </td>
-	                            	<td style="text-align:right">'. $izdanje->Cena.'</td>';
-	                        	?>
-	                        </tr>
-	                        <tr>
-	                            <?php
-	                        		echo '<td>Опис: </td>
-	                            	<td style="text-align:right">'. $izdanje->Opis.'</td>';
+	                            	<td style="text-align:right">'. $izdanje->Cena.' дин</td>';
 	                        	?>
 	                        </tr>
 	                        
 	                    </tbody>
 	                </table>
+	                <hr>
+	                <?php
+	                	echo '<br/>
+	                		  <h3>Укратко</h3>
+	                		  <hr>
+	                		  <p class="h-auto w-auto" overflow="scroll">
+	                			'. $izdanje->Opis .'
+	                		</p>';
+	                ?>
 	            </div>
+	            	
+	            
 	        </div>
 	    </div>
 	</div>

@@ -26,6 +26,12 @@
 			return $izdanje;
 		}
 
+		public function svaIzdanja(){
+			$this->db->from("izdanje");
+
+			return  $this->db->get()->result();
+		}
+
 	}
 	
 ?>

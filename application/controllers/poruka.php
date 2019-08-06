@@ -31,7 +31,7 @@
          */
         public function index(){
             $content["ErrorMessage"] = "Страница није пронађена !";            
-            $this->loadPageLayout("pages/poruka.php");
+            $this->loadPageLayout("pages/poruka.php", $content);
         }
 
         public function StranicaNijePronadjena(){          
@@ -40,7 +40,7 @@
 
         public function UspesnoLogovanje(){          
              $content["SuccessMessage"] = "Успешно сте се улоговали !";            
-            $this->loadPageLayout("pages/poruka.php");
+            $this->loadPageLayout("pages/poruka.php", $content);
         }
 
     }
