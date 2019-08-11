@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label>Наслов</label>
-                <input type="text" class="form-control" name="title" maxlength="45" required
+                <input type="text" class="form-control" name="title" maxlength="80" required
                 oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Морате попунити ово поље')"
                     >
             </div>

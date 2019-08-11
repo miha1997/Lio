@@ -1,1 +1,1 @@
-<?php echo base_url()?>
+'<?php echo json_encode($izdanja); ?>'

@@ -11,15 +11,9 @@
          */
         public function __construct(){
             parent::__construct();
-
-            $this->load->model("Korisnik");
             $this->load->model("Izdanje");
-
-            $korisnik = $this->session->userdata("korisnik");
-
-            if ($korisnik == null || $korisnik->Rang < 2){
-                redirect("poruka/StranicaNijePronadjena");
-            }
+            $this->load->model("Korisnik");
+            
         }
 
         /**
@@ -61,6 +55,7 @@
             }
 
             $content["izdanja"] = $this->Izdanje->svaIzdanja();
+            $content["korisnici"] = $this->Korisnik->sviKorisnici();
             $this->loadPageLayout("pages/pretraga.php", $content);
             
         }

@@ -11,6 +11,7 @@
          */
         public function __construct(){
             parent::__construct();
+            $this->load->model("Izdanje");
         }
 
         /**
@@ -29,8 +30,9 @@
         /**
          * index function, default function called for this contoller
          */
-        public function index(){            
-            $this->loadPageLayout("pages/Kontakt.php");
+        public function index(){  
+            $content["izdanja"] = $this->Izdanje->svaIzdanja();          
+            $this->loadPageLayout("pages/Kontakt.php", $content);
         }
 
     }

@@ -29,6 +29,11 @@
 			$this->db->insert("korisnik", $data);
 		}
 
+		public function sviKorisnici(){
+			$this->db->from("korisnik");
+			return  $this->db->get()->result();
+		}
+
 		public function proveriKorisnika($email, $password){
 			$this->db->from("korisnik");
 			$this->db->where("Mail", $email);
